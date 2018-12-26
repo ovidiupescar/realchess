@@ -159,11 +159,10 @@
         serverGame = serverGameState; 
 
           var cfg = {
-            position: '8/8/8/8/P3r2K/1BBk4/1P3p2/8',
             draggable: true,
             showNotation: false,
             orientation: playerColor,
-            position: serverGame.board ? serverGame.board : 'start',
+            position: '8/8/8/8/P3r2K/1BBk4/1P3p2/8',
             onDragStart: onDragStart,
             onDrop: onDrop,
             onSnapEnd: onSnapEnd
