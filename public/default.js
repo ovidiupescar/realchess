@@ -157,8 +157,9 @@
 
       var initOldGame = function (serverGameState) {
         serverGame = serverGameState; 
-        
+
           var cfg = {
+            position: '8/8/8/8/P3r2K/1BBk4/1P3p2/8',
             draggable: true,
             showNotation: false,
             orientation: playerColor,
