@@ -46,7 +46,7 @@
       socket.on('joingame', function(msg) {
         console.log("joined as game id: " + msg.game.id );   
         playerColor = msg.color;
-        initGame(msg.game);
+        initOldGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
@@ -139,6 +139,23 @@
       ////////////////////////////// 
       
       var initGame = function (serverGameState) {
+        serverGame = serverGameState; 
+        
+          var cfg = {
+            draggable: true,
+            showNotation: false,
+            orientation: playerColor,
+            position: serverGame.board ? serverGame.board : 'start',
+            onDragStart: onDragStart,
+            onDrop: onDrop,
+            onSnapEnd: onSnapEnd
+          };
+               
+          game = serverGame.board ? new Chess(serverGame.board) : new Chess();
+          board = new ChessBoard('game-board', cfg);
+      }
+
+      var initOldGame = function (serverGameState) {
         serverGame = serverGameState; 
         
           var cfg = {
